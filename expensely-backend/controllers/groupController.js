@@ -1,15 +1,9 @@
-exports.getGroups = (req, res) => {
-  res.send('Get all groups');
-};
-
-exports.createGroup = (req, res) => {
-  res.send('Create a group');
-};
-
-exports.updateGroup = (req, res) => {
-  res.send('Update a group');
-};
-
-exports.deleteGroup = (req, res) => {
-  res.send('Delete a group');
+exports.createGroup = async (req, res) => {
+  try {
+    const { name, members, createdBy } = req.body;
+    const group = await Group.create({ name, members, createdBy });
+    res.status(201).json(group);
+  } catch (error) {
+    res.status(500).json({ message: 'Error creating group', error });
+  }
 };
