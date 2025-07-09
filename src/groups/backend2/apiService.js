@@ -1,7 +1,7 @@
 // apiService.js
 import authService from './authService';
 
-const BASE_URL = 'http://10.0.2.2:1234/api';  
+const BASE_URL = 'https://expensely-project.onrender.com/api';  
 
 class ApiService {
   async request(endpoint, options = {}) {
